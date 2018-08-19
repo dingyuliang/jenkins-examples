@@ -5,21 +5,40 @@ pipeline
 		node 
 		{
 			label 'win'
+                        //  solve the long file path in windows environment
 			customWorkspace "ws\\${JOB_NAME.replace("%2F", "_")}\\${BUILD_NUMBER}"
 	    	}
 	}
 	stages 
 	{
-		stage('Checkout'){
-			steps{
+		stage("Checkout")
+        	{
+			steps
+            		{
 				checkout scm
 			}
 		}
-		stage('Build'){
-			steps{
-				bat 'nuget restore src/CMS6.sln'
-				bat "\"${tool 'MS Build 2015'}\"  src/CMS6.sln /p:Configuration=Release /p:Platform=\"Any CPU\" "
+		stage("Build")
+        	{
+			steps
+            		{
+				bat '"./.jenkins/nuget.exe" restore src/DotNet/DotNet.Jenkins.sln'
+				bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\msbuild.exe"  src/DotNet/DotNet.Jenkins.sln /p:Configuration=Release /p:Platform="Any CPU" '
 			}
+		}
+		stage("UnitTesting")
+		{
+			steps
+			{
+				bat '".jenkins/xunit.runner.console.2.4.0/tools/net461/xunit.console.exe" src/DotNet/DotNet.Jenkins.Tests/bin/Release/DotNet.Jenkins.Tests.dll'
+			}
+		}
+		stage("deploy")
+		{
+			steps
+			{
+			      bat '.jenkins/dotnetpublish.bat "E:\\websites\\deployed\\dotnet" Services'
+            		}
 		}
 	}
 }
