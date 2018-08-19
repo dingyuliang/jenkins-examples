@@ -22,22 +22,22 @@ pipeline
         	{
 			steps
             		{
-				bat 'dotnet restore src/DotNetCore/DotNetCore.Jenkins.sln'
-				bat 'dotnet build  src/DotNetCore/DotNetCore.Jenkins.sln /p:Configuration=Release /p:Platform="Any CPU" '
+				bat 'nuget restore src/DotNet/DotNet.Jenkins.sln'
+				bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\msbuild.exe"  src/DotNet/DotNet.Jenkins.sln /p:Configuration=Release /p:Platform="Any CPU" '
 			}
 		}
 		stage("UnitTesting")
 		{
 			steps
 			{
-				bat 'dotnet test src/DotNetCore/DotNetCore.Jenkins.Tests/DotNetCore.Jenkins.Tests.csproj --logger "trx;LogFileName=dotnetcore.trx"'
+				bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\IDE\\MSTEST.exe" src/DotNet/DotNet.Jenkins.Tests/DotNet.Jenkins.Tests.csproj --logger "trx;LogFileName=dotnet.trx"'
 			}
 		}
 		stage("deploy")
 		{
 			steps
 			{
-			      bat '.jenkins/dotnetcorepublish.bat "E:\\websites\\deployed\\dotnetcore" Services'
+			      bat '.jenkins/dotnetpublish.bat "E:\\websites\\deployed\\dotnet" Services'
             		}
 		}
 	}
