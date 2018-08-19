@@ -35,7 +35,10 @@ pipeline
 		}
 		stage("deploy")
 		{
-			echo "Good Job, Done!"
+			steps
+			{
+			    echo "Good Job, Done!"
+            }
 		}
 	}
 }
