@@ -1,0 +1,25 @@
+pipeline 
+{
+	agent 
+	{
+		node 
+		{
+			label 'win'
+			customWorkspace "ws\\${JOB_NAME.replace("%2F", "_")}\\${BUILD_NUMBER}"
+	    	}
+	}
+	stages 
+	{
+		stage('Checkout'){
+			steps{
+				checkout scm
+			}
+		}
+		stage('Build'){
+			steps{
+				bat 'nuget restore src/CMS6.sln'
+				bat "\"${tool 'MS Build 2015'}\"  src/CMS6.sln /p:Configuration=Release /p:Platform=\"Any CPU\" "
+			}
+		}
+	}
+}
