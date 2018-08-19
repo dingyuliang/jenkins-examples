@@ -37,7 +37,7 @@ pipeline
 		{
 			steps
 			{
-			      bat '.jenkins/dotnetcorepublish.bat "E:\\websites\\deployed\\dotnetcore"'
+			      bat '.jenkins/dotnetcorepublish.bat "E:\\websites\\deployed\\dotnetcore" Services'
             		}
 		}
 	}
