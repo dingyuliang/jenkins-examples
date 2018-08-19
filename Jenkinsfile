@@ -35,7 +35,7 @@ pipeline
 		}
 		stage("deploy")
 		{
-			sendMessage "Good Job, Done!"
+			echo "Good Job, Done!"
 		}
 	}
 }
