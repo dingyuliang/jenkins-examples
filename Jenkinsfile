@@ -22,7 +22,7 @@ pipeline
         	{
 			steps
             		{
-				bat 'nuget restore src/DotNet/DotNet.Jenkins.sln'
+				bat '"./.jenkins/nuget.exe" restore src/DotNet/DotNet.Jenkins.sln'
 				bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\msbuild.exe"  src/DotNet/DotNet.Jenkins.sln /p:Configuration=Release /p:Platform="Any CPU" '
 			}
 		}
@@ -30,7 +30,7 @@ pipeline
 		{
 			steps
 			{
-				bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\IDE\\MSTEST.exe" src/DotNet/DotNet.Jenkins.Tests/DotNet.Jenkins.Tests.csproj --logger "trx;LogFileName=dotnet.trx"'
+				bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\IDE\\MSTEST.exe"  /testcontainer:src/DotNet/DotNet.Jenkins.Tests/DotNet.Jenkins.Tests/bin/DotNet.Jenkins.Tests.dll /resultsfile:dotnet.trx'
 			}
 		}
 		stage("deploy")
