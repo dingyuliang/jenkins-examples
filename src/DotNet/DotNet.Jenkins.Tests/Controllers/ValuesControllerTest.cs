@@ -22,7 +22,7 @@ namespace DotNet.Jenkins.Tests.Controllers
             IEnumerable<string> result = controller.Get();
 
             // Assert
-            Assert.Null(result);
+            Assert.NotNull(result);
             Assert.Equal(2, result.Count());
             Assert.Equal("value1", result.ElementAt(0));
             Assert.Equal("value2", result.ElementAt(1));

@@ -17,8 +17,8 @@ namespace DotNet.Jenkins.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.Null(result);
-            Assert.Equals("Home Page", result.ViewBag.Title);
+            Assert.NotNull(result);
+            Assert.Equal("Home Page", result.ViewBag.Title);
         }
     }
 }
