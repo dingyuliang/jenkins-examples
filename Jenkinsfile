@@ -40,7 +40,7 @@ pipeline
 			      bat 'dotnet publish src/DotNetCore/DotNetCore.Jenkins/DotNetCore.Jenkins.csproj -o src/DotNetCore/DotNetCore.Jenkins/bin/publish'
 			      bat 'rmdir /s /q "E:/websites/deployed/dotnetcore"'
 			      bat 'mkdir "E:/websites/deployed/dotnetcore"'
-			      bat 'xcopy src/DotNetCore/DotNetCore.Jenkins/bin/publish "E:/websites/deployed/dotnetcore"'
+			      bat 'xcopy "src/DotNetCore/DotNetCore.Jenkins/bin/publish" "E:/websites/deployed/dotnetcore" /s /e'
             		}
 		}
 	}
