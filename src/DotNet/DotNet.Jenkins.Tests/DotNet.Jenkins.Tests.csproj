@@ -111,6 +111,15 @@
     <Reference Include="xunit.execution.desktop, Version=2.4.0.4049, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.extensibility.execution.2.4.0\lib\net452\xunit.execution.desktop.dll</HintPath>
     </Reference>
+    <Reference Include="xunit.runner.msbuild.net452">
+      <HintPath>..\packages\xunit.runner.msbuild.2.4.0\build\net452\xunit.runner.msbuild.net452.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.runner.reporters.net452">
+      <HintPath>..\packages\xunit.runner.msbuild.2.4.0\build\net452\xunit.runner.reporters.net452.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.runner.utility.net452">
+      <HintPath>..\packages\xunit.runner.msbuild.2.4.0\build\net452\xunit.runner.utility.net452.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
