@@ -30,7 +30,7 @@ pipeline
 		{
 			steps
 			{
-				bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\IDE\\MSTEST.exe"  /testcontainer:src/DotNet/DotNet.Jenkins.Tests/bin/Release/DotNet.Jenkins.Tests.dll /resultsfile:dotnet.trx'
+				bat '".jenkins/xunit.runner.console.2.4.0/tools/net461/xunit.console.exe" src/DotNet/DotNet.Jenkins.Tests/bin/Release/DotNet.Jenkins.Tests.dll'
 			}
 		}
 		stage("deploy")
