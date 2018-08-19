@@ -37,7 +37,7 @@ pipeline
 		{
 			steps
 			{
-			      bat 'call ./.jenkins/dotnetcorepublish.sh'
+			      bat 'call "./.jenkins/dotnetcorepublish.sh"'
             		}
 		}
 	}
