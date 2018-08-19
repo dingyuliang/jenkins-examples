@@ -30,7 +30,7 @@ pipeline
 		{
 			steps
 			{
-				bat 'dotnet test src/DotNetCore.Jenkins.Tests/DotNetCore.Jenkins.Tests.csproj  --no-build --logger "trx;LogFileName=dotnetcore.trx"'
+				bat 'dotnet test src/DotNetCore/DotNetCore.Jenkins.Tests/DotNetCore.Jenkins.Tests.csproj  --no-build --logger "trx;LogFileName=dotnetcore.trx"'
 			}
 		}
 		stage("deploy")
