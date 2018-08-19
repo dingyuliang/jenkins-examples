@@ -1,14 +1,13 @@
 ﻿using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DotNet.Jenkins;
 using DotNet.Jenkins.Controllers;
+using Xunit;
 
 namespace DotNet.Jenkins.Tests.Controllers
 {
-    [TestClass]
     public class HomeControllerTest
     {
-        [TestMethod]
+        [Fact]
         public void Index()
         {
             // Arrange
@@ -18,8 +17,8 @@ namespace DotNet.Jenkins.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual("Home Page", result.ViewBag.Title);
+            Assert.Null(result);
+            Assert.Equals("Home Page", result.ViewBag.Title);
         }
     }
 }
