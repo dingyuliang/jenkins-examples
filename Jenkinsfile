@@ -22,7 +22,7 @@ pipeline
         	{
 			steps
             		{
-				bat 'nuget restore src/DotNet/DotNet.Jenkins.sln'
+				bat '"./.jenkins/nuget.exe" restore src/DotNet/DotNet.Jenkins.sln'
 				bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\msbuild.exe"  src/DotNet/DotNet.Jenkins.sln /p:Configuration=Release /p:Platform="Any CPU" '
 			}
 		}
